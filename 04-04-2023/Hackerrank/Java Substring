@@ -1,0 +1,40 @@
+################  MY SOLUTION ###########
+
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String S = in.next();
+        int start = in.nextInt();
+        int end = in.nextInt();
+        System.out.println(S.substring(start , end));
+    }
+}
+
+
+
+ANOTHER APPROACHES
+
+1) ################  
+
+ Scanner reader = new Scanner(System.in);
+        System.out.print(reader.next()
+            .substring(reader.nextInt(),reader.nextInt())
+        );
+        reader.close();
+
+
+2) ###################
+
+=> in this approach only one line is added for beter understanding from previos approach (my solution )
+
+    String substr = S.substring(start, end);
+
+    System.out.println(substr); 
