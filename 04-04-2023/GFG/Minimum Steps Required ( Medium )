@@ -1,1 +1,68 @@
+GFG Problem of the Day => Minimum Steps Required
 
+
+
+class Solution{
+	int minSteps(String str) {
+  
+  
+1)  First solution of the minimum steps required
+		    int a_count=0, b_count=0;
+		    
+        char ch[] = str.toCharArray();
+        if( ch[0] == 'a'){
+            a_count++;
+        }else{
+            b_count++;
+        }
+		  for(int i=1;i<ch.length;i++) {
+      
+      
+=> first approach     
+            if(ch[i-1]=='a' && ch[i]=='b') {
+                b_count++;
+                    //System.out.println(b_count);
+                    
+            }
+            if(ch[i-1]=='b' && ch[i]=='a') {
+                a_count++;
+                 //System.out.println(a_count);
+      } 
+      
+      
+=> second approach (Alteranate)
+          if(str[i]!=str[i-1])
+      {
+          if(str[i]=='a') cnta++;
+          else cntb++;
+      }
+        }
+        return Math.min(a_count, b_count)+1;
+
+
+2) second solution of minimum steps required
+
+int count=1;
+		for(int i=1; i<str.length(); i++){
+		    if(str.charAt(i)==str.charAt(i-1))continue;
+		        count++;
+		    
+		}
+		
+		return (count+2)/2;
+
+
+3) Third  approach of the minimum steps required
+
+char str[]=s.toCharArray();
+		int count=1;
+    for(int i=1;i<str.length;i++)
+    {
+        if(str[i]==str[i-1]) continue;
+        count++;
+    }
+    return (count+2)/2;
+    
+    
+	}
+}
