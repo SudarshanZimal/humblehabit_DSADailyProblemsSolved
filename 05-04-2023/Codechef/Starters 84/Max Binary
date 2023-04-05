@@ -1,0 +1,91 @@
+/ /* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+// /* Name of the class has to be "Main" only if the class is public. */
+// class Codechef
+// {
+// 	public static void main (String[] args) throws java.lang.Exception
+// 	{
+// 		// your code goes here
+// 		Scanner sc = new Scanner (System.in);
+// 		int T = sc.nextInt();
+// 	   for(int j = 0 ; j < T ; j++)
+// 		    {
+//         int n = sc.nextInt(); // length of binary string
+//         int k = sc.nextInt(); // maximum number of operations allowed
+//         String s = sc.next(); // binary string
+//         char[] ch = s.toCharArray(); // convert string to char array
+
+//         // First, change all '0' to '1' using type 2 operation
+//         for (int i = 0; i < n; i++) {
+//             if (ch[i] == '0' && k > 0) {
+//                 ch[i] = '1';
+//                 k--;
+//             }
+//             else if (k == 0) {
+//                 break;
+//             }
+//         }
+
+//         // Then, insert '0' at any remaining positions using type 1 operation
+//         for (int i = n - 1; i >= 0 && k > 0; i--) {
+//             if (ch[i] == '1') {
+//                 break;
+//             }
+//             else {
+//                 ch[i] = '0';
+//                 k--;
+//             }
+//         }
+
+//         // convert char array back to string and output the modified string
+//         System.out.println(new String(ch));
+//     }
+//     sc.close();
+
+
+// 	}
+// }
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+        Scanner scanner = new Scanner(System.in);
+        int t = scanner.nextInt();
+        while (t-- > 0) {
+            int n = scanner.nextInt();
+            int k = scanner.nextInt();
+            String s = scanner.next();
+            int[] cnt = new int[2];
+            for (int i = 0; i < n; i++) {
+                cnt[s.charAt(i) - '0']++;
+            }
+            int ones = cnt[1];
+            int zeroes = cnt[0];
+            int diff = ones - zeroes;
+            if (diff <= k) {
+                int remaining = k - diff;
+                for (int i = n - 1; i >= 0 && remaining > 0; i--) {
+                    if (s.charAt(i) == '0') {
+                        s = s.substring(0, i) + '1' + s.substring(i + 1);
+                        remaining--;
+                    }
+                }
+            } else {
+                int remaining = diff - k;
+                for (int i = n - 1; i >= 0 && remaining > 0; i--) {
+                    if (s.charAt(i) == '1') {
+                        s = s.substring(0, i) + '0' + s.substring(i + 1);
+                        remaining--;
+                    }
+                }
+            }
+            System.out.println(s);
+        }
+        scanner.close();
+    }
+}
+
