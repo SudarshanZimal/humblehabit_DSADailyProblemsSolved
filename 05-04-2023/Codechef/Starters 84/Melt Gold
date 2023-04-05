@@ -1,0 +1,86 @@
+/* package codechef; // don't place package name! */
+
+// import java.util.*;
+// import java.lang.*;
+// import java.io.*;
+
+
+// /* Name of the class has to be "Main" only if the class is public. */
+// class Codechef
+// {
+// 	public static void main (String[] args) throws java.lang.Exception
+// 	{
+// // 		// your code goes here
+// // 			Scanner sc = new Scanner (System.in);
+// // 		int T = sc.nextInt();
+// // 	   //for(int j = 0 ; j < T ; j++) {
+// //     //     int X = sc.nextInt(); // number of people 
+// //     //     int Y = sc.nextInt(); 
+        
+     
+        
+// //     //     int i = 0; // counter
+
+// //     //     while (Y < X) {
+// //     //         Y += sc.nextInt(); // add temperature minute
+// //     //         i++; 
+// //     //     }
+
+// //     //     System.out.println(i); 
+// //     // }
+// //     // sc.close();
+// //       for(int j = 0 ; j < T ; j++) {
+// //         int X = sc.nextInt(); // melting point of the ore
+// //         int Y = sc.nextInt(); // initial temperature of kiln
+// //         int i = 0; // counter for minutes
+// //         int in=0;
+
+// //         while (Y <= X) {
+// //             Y += sc.nextInt(); // add temperature increase after i-th minute
+// //             i++; // increment minute counter
+// //         }
+
+// //         System.out.println(i); // output the minimum time in minutes after which the ore starts melting
+// //     }
+//   Scanner scanner = new Scanner(System.in);
+//         int T = scanner.nextInt(); // number of test cases
+//         while (T-- > 0) {
+//             int X = scanner.nextInt(); // melting point
+//             int Y = scanner.nextInt(); // initial temperature
+//             int i = scanner.nextInt(); // rate of temperature increase per minute
+            
+//             int time = (int) Math.ceil((double) (X - Y) / i); // calculate minimum time
+//             System.out.println(time);
+//         }
+//         scanner.close();
+        
+// }
+
+
+	
+// }
+
+import java.util.*;
+
+class Codechef {
+    public static void main(String[] args) throws java.lang.Exception {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+     for(int j = 0 ; j < T ; j++) {
+            int X = sc.nextInt();
+            int Y = sc.nextInt();
+            int i = 0;
+           // int len = Y + i;
+            while ( Y   < X) {
+            //     int temp =  Y;
+            //     Y = len ;
+            //   len= temp;
+                
+            //     i++;
+               Y += ++i;
+            }
+            System.out.println(i);
+        }
+        sc.close();
+    }
+} // end of class
