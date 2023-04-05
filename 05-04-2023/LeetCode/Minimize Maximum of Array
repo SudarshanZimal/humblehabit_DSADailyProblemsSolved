@@ -1,0 +1,57 @@
+################  MY SOLUTION #########################
+class Solution {
+    public int minimizeArrayValue(int[] nums) {
+//for this solution time limit exceeded  
+        // long ans = 0 , sum = 0;
+        // int i = 0;
+        // while( i < nums.length){
+        // sum +=nums[i];
+        // ans = Math.min(ans , (sum+i)/(i+1));
+        // }
+        // return (int)ans;
+
+ //another approach       
+    //       long ans = 0 , sum = 0;
+    //   for( int i= 0 ; i < nums.length; ++i){
+    //     sum +=nums[i];
+    //     ans = Math.max(ans , (sum+i)/(i+1));
+    //     }
+    //     return (int)ans;
+
+//another approach
+
+         long ans = 0 , sum = 0;
+        int i = 0;
+        while( i < nums.length){
+        sum +=nums[i];
+        ans = Math.max(ans , (sum+i)/(i+1));
+        ++i;
+        }
+        return (int)ans;
+
+    }
+}
+
+
+
+##################### USING CEIL FUNCTION ##########################
+
+class Solution {
+    public int minimizeArrayValue(int[] nums) {
+        long sum=0;
+        int max=0;
+        for(int i=0;i<nums.length;i++){
+            sum+=nums[i];
+            max=Math.max(max,(int)intCeil(sum,i+1));
+        }
+        return max;
+    }
+    public long intCeil(long a,int b) {
+      if(a%b!=0) {
+          return (a/b)+1;
+      }
+      else 
+          return a/b;
+    }
+}
+
