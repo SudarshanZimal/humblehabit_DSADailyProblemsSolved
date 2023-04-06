@@ -1,0 +1,19 @@
+
+//User function Template for Java
+
+class Solution {
+    static int toggleBits(int N , int L , int R) {
+        // code here
+         String s = Integer.toBinaryString(N);
+        char ch[] = s.toCharArray();
+        for(int i=s.length()-R;i<=s.length()-L;i++)
+        {
+            if(ch[i]=='0')
+                ch[i]='1';
+            else
+                ch[i] = '0';
+        }
+        String str = new String(ch);
+        return Integer.parseInt(str,2);
+    }
+};
