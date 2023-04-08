@@ -1,0 +1,16 @@
+//User function Template for Java
+
+class Solution {
+    static int getAngle(int H , int M) {
+        // code here
+          float angle=(float)Math.abs((11*M-60*H)*0.5);
+
+       if(angle>180){
+
+           return (int)(360-angle);
+
+       }
+
+       return (int)angle;
+    }
+};
