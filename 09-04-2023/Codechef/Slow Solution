@@ -1,0 +1,45 @@
+######################## MY SOLUTION ####################
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc = new Scanner (System.in);
+		int T = sc.nextInt();
+		for( int i = 0 ; i < T ; i++){
+		    int maxT = sc.nextInt();
+		    int maxN = sc.nextInt(); 
+		    int sumN = sc.nextInt();
+		    
+	   //   //System.out.println());
+		  //double k = Math.ceil((double)sumN/(double)maxN);
+		  //  int z =(int)k;
+		  //  int l = Math.min(z , maxT);
+		  // //System.out.println(l);
+		  //  int s = sumN % maxN;
+		  //  if( s == 0) System.out.println(l*maxN*maxN);
+		  //  else System.out.println(((l-1)*maxN *maxN)+(s*s));
+		  ////  System.out.println((l-1)*maxN *maxN);
+		  ////  System.out.println(s*s);
+		     int ans = 0;   
+		     //Because of maxT or sumN will never be a zero
+		    while( maxT >0 && sumN >0){
+		        int n = Math.min(maxN , sumN);
+		        ans+=n*n;
+		        sumN -= n;
+		        maxT--;
+		    }
+		    System.out.println(ans);
+		   
+		   // System.out.println(ans);
+		    
+		}
+}
+}
