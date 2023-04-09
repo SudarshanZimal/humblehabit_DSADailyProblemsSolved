@@ -1,0 +1,79 @@
+import java.math.BigDecimal;
+import java.util.*;
+import java.util.stream.Stream;
+
+class Solution {
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        final List<KeyValueHolder> list = new ArrayList<>();
+        final Scanner scanner = new Scanner(System.in);
+        final int numberOfIntegerStrings = scanner.nextInt();
+
+        for (int i = 0; i < numberOfIntegerStrings; i++) {
+            final String numToken = scanner.next();
+            final BigDecimal newEntry;
+            final String tokenToParse;
+
+            if (numToken.startsWith(".")) {
+                tokenToParse = numToken.replace(".", "0.");
+            } else {
+                tokenToParse = numToken;
+            }
+            newEntry = parseBigDecimal(tokenToParse);
+
+            list.add(new KeyValueHolder(numToken, newEntry));
+        }
+
+        sortAndPrint(list);
+    }
+
+    private static BigDecimal parseBigDecimal(final String numToken) {
+        final BigDecimal bd;
+        if (numToken.contains(".")) {
+            bd = BigDecimal.valueOf(Double.parseDouble((numToken)));
+        } else {
+            bd = BigDecimal.valueOf(Integer.parseInt(numToken));
+        }
+        return bd;
+    }
+
+    private static void sortAndPrint(final List<KeyValueHolder> list) {
+        final Stream<BigDecimal> sortedValues = list.stream().map(KeyValueHolder::getValue)
+                .sorted(Comparator.reverseOrder());
+        sortedValues.forEach(num -> {
+            final Optional<KeyValueHolder> holderForNum = list.stream()
+                    .filter(holder -> holder.getValue().equals(num)).findFirst();
+            holderForNum.ifPresent(holder -> {
+                System.out.println(holder.getKey());
+                list.remove(holder);
+            });
+        });
+    }
+
+    private static final class KeyValueHolder {
+
+        private String key;
+        private BigDecimal value;
+
+        public KeyValueHolder(String key, BigDecimal value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        public String getKey() {
+            return key;
+        }
+
+        public void setKey(String key) {
+            this.key = key;
+        }
+
+        public BigDecimal getValue() {
+            return value;
+        }
+
+        public void setValue(BigDecimal value) {
+            this.value = value;
+        }
+    }
+}
