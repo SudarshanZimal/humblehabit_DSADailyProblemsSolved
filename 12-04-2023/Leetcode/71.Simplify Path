@@ -1,1 +1,59 @@
 
+############################ MY SOLUTION ##########################
+
+
+class Solution {
+    public String simplifyPath(String path) {
+        //  char[] character  = path.toCharArray();
+        //  String str;
+        //  for( int i = 0 ; i < character.length ; i++){
+        //     if( character[0] == /){
+        //         str+=/;
+        //     }else{
+        //         str+=/;
+        //     }
+        //     if(character[i] == '.' || character[i]=='..'){
+        //         str+="";
+        //     }
+        //     if(character[character.length-1] == /){
+        //         str+="";
+        //     }
+        //     if(character[i] == "//" ){
+        //         str+='/';
+        //     }
+        //     if(cahracter[i] )
+        //  }
+     // First create an empty stack
+     Stack<String> sc = new Stack<>();
+   //then split the string and stored into the array => split string when "/" comes
+   //use string split method in java.util pacakge
+   String[] str = path.split("/");
+   //then create stringbuilder for storing result => stringbuilder is the a class reperesent in java which is represnt the mutable sequence of characters in java string
+   //instance of the string builder
+   StringBuilder ans = new StringBuilder(); 
+   //traverse into the string str 
+   //push the element into the stack 
+   //use for loop to tracverse the str 
+   for( int i = 0 ; i < str.length ; i++){
+        //if stack is not empty or stack contains the "//" then pop the element into the stack
+        if(!sc.isEmpty() && str[i].equals("..")){
+              sc.pop();
+              //string contain the "" , ".",".." means stay over there 
+              //other  than this push into the stack
+        }else if(!str[i].equals(".") && !str[i].equals("") && !str[i].equals("..")){
+           sc.push(str[i]);   
+        }
+   }
+   //corner case of the code
+   //stack is empty then simply return the first character of the string menas bydefault the "/"
+   if(sc.isEmpty()) return"/";
+   //if string is not empty then add ans into the stringbuilder 
+   while(!sc.isEmpty()){
+       ans.insert(0,sc.pop()).insert(0,"/");
+   }
+   //return answer into the string
+   return ans.toString();
+
+
+    }
+}
