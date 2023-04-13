@@ -39,3 +39,45 @@ class Codechef
 	   
 	}
 }
+
+
+#################### APPROACH IS SAME BUT SYNTAX IS DIFERENT ######################################33
+
+/* package codechef; // don't place package name! */
+import java.util.StringTokenizer;
+import java.io.PrintWriter;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		PrintWriter pt = new PrintWriter(System.out);
+		int t = Integer.parseInt(st.nextToken());
+		while(t-->0)
+		{
+		    st = new StringTokenizer(br.readLine());
+		    int n = Integer.parseInt(st.nextToken());
+		    int y = Integer.parseInt(st.nextToken());
+		    int[] arr = new int[n];
+		    st = new StringTokenizer(br.readLine());
+		    int op1 = 0;
+		    
+		    for (int i = 0 ; i<n ; i++)
+		    {
+		        arr[i] = Integer.parseInt(st.nextToken());
+		        op1 = op1 | arr[i];
+		    }
+		    int op2 = op1^y;
+		    if((op1|op2) == y)pt.println(op2);
+		    else pt.println(-1);
+		}
+		pt.flush();
+	}
+}
