@@ -1,1 +1,37 @@
+import java.io.*;
+import java.util.regex.*;
+import java.util.Scanner;
 
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+  
+    Scanner sc = new Scanner (System.in);
+    // static void patternChecker(String str){
+    //     String str = sc.nextLine();
+    //     char[] character = str.toCharArray();
+    // }
+   
+    int T = Integer.parseInt(sc.nextLine());
+
+    // Stack<Integer> a = new Stack<>();
+    // // patternChecker();
+     for( int i = 0 ; i < T ; i++){
+         
+         String str = sc.nextLine();
+         try{
+             
+         Pattern.compile(str);
+         System.out.println("Valid");
+         }catch(Exception ex){
+             System.out.println("Invalid");
+         }
+        
+    // a.push(character[i]);
+    // if(character[i] = { )
+    
+     }
+    }
+    
+}
