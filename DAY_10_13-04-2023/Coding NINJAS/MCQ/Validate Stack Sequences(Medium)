@@ -1,0 +1,27 @@
+################### MY SOLUTION ###########################
+
+
+class Solution {
+    public boolean validateStackSequences(int[] pushed, int[] popped) {
+        //first create the stack
+        Stack<Integer> stack = new Stack<>();
+        //initialize the j \for popped array
+        int j = 0;
+        //after traverse to the pushed array 
+        
+        for( int i = 0 ; i < pushed.length ; i++){
+           //pushed element into the stack
+           stack.push(pushed[i]);
+           while(!stack.empty() && stack.peek() == popped[j]){
+               //popped peek element from the stack
+               stack.pop();
+               //increase the index of the popped array  
+               j++;
+               
+           }
+        }
+        //return boolean value 
+        //if stack is empty then return true or stack is not empty then return false
+        return stack.empty();
+    }
+}
