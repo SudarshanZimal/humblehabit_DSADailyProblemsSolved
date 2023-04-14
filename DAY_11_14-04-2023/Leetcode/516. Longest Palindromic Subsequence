@@ -1,0 +1,79 @@
+#######################  MY SOLUTION ##########################
+
+
+ONLY 10/86 TESTCASES PASSES
+
+
+
+class Solution {
+    public int longestPalindromeSubseq(String s) {
+        // char[] character = s.toCharArray();
+        // int count = 1;
+        //  char store = 'a';//store = c, character[0] = a // store = b , character[1] = c //store = b , character[2] = b,// store = d , character[3] = b
+        // for( char i = 0 ; i < character.length; i++){
+        //           char temp = store;
+        //           store = character[i];
+        //           character[i] = temp;
+        //       if ( character[i] ==  store  ){
+        //           count++;
+        //       }
+        // }
+        // return count;
+////////////////////////////////////////////////////////////
+        //  char[] character = s.toCharArray();
+        // int count = 1;
+        //  //store = c, character[0] = a // store = b , character[1] = c //store = b , character[2] = b,// store = d , character[3] = b
+        // for( char i = 0 ; i < character.length; i++){
+        //         char store = character[i+1];
+        //           char temp = store;
+        //           store = character[i];
+        //           character[i] = temp;
+        //       if ( character[i] ==  store  ){
+        //           count++;
+        //       }
+        // }
+        // return count;
+
+
+        /////////////////////////////////////////////////////////////
+        char[] character = s.toCharArray();
+        int count = 1;
+         //store = c, character[0] = a // store = b , character[1] = c //store = b , character[2] = b,// store = d , character[3] = b
+         for( char i = 0 ; i < character.length; i++){
+               if( character[0] == character[character.length-1]){
+                   count++;
+                   break;
+         }
+         }
+        for( char i = 0 ; i < character.length; i++){
+            // switch(i < character.length){
+            //     case (character[0] == character[character.length-1]): count++;
+            //     break;
+            //     case  (character[0] == character[character.length-1]) : count=1;
+            // }
+           if( character.length > 1){
+            if( i < character.length - 1){
+                // char store = character[i+1];
+                //   char temp = store;
+                //   store = character[i];
+                //   character[i] = temp;
+                  if ( character[i] ==  character[i+1] ){
+                         count++;
+                         System.out.println(character[i]);
+              }
+            }
+        }
+        }
+        return count;
+
+
+
+
+
+
+    }
+}
+
+
+
+
