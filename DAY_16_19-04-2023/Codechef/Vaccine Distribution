@@ -1,1 +1,48 @@
+/* package codechef; // don't place package name! */
 
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc= new Scanner ( System.in);
+		int T = sc.nextInt();	
+	    while( T -- > 0){
+	       double count = 0.0;
+	        int N = sc.nextInt();
+	        double D = sc.nextInt();
+	        int[] age = new int[N];
+	        //int i = 0;
+	        
+	       for( int i = 0 ; i < N  ; i++) {
+	           age[i]=sc.nextInt();
+	          if(age[i] >= 80 || age[i] <= 9){
+	              count++;
+	          }  
+	          }
+	      
+	       //   int res = 0;
+	       //   int ans = 0;
+	       //   int c = 0;
+	          double k = N- count;
+	           int res= (int)Math.ceil(count/D);
+	           //System.out.println(res);
+	          int ans=(int)Math.ceil(k/D);
+	           // System.out.println(ans);
+	         int  c = res+ans;
+	          System.out.println(c);
+	       //int res = (count % D == 0 ? count/D : count/D+1);
+	       //
+	       //int ans = (k%D == 0 ? k/D : k/D+1);
+	       //System.out.println( res+ans);
+	       
+	    }
+	    
+	    
+	}
+}
