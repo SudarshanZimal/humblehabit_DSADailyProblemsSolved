@@ -1,1 +1,37 @@
+//User function Template for Java
+class Solution 
+{ 
+    boolean wifiRange(int N, String S, int X) 
+    { 
+        // code here
+        
+// ArrayList<Character> chars = new ArrayList<Character>();
+// for (char c : S.toCharArray()) {
+//   chars.add(c);
+// }
+// if(chars.contain(1)){
+    
+// }
 
+int count = 0;
+int i = 0;
+while( i < N){
+    if( S.charAt(i) =='0') count++;
+    else {
+        count= (-1)*X;
+  
+    }
+          i++;
+    if( count> X)return false;
+}
+    if(count > 0)
+       return false;
+       
+    
+
+return true;
+
+
+        
+    }
+} 
