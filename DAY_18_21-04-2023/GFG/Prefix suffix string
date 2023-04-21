@@ -39,3 +39,38 @@ else if( s1[j].length() >= len && str.equals(s1[j].substring(s1[j].length()-len,
 
 
 
+##################   USING HASHSET ###############################
+
+
+class Solution
+{
+    public int prefixSuffixString(String s1[],String s2[])
+    {
+        HashSet<String> hs=new HashSet<>();
+        for(int i=0;i<s1.length;i++)
+        {
+            String s="";
+            for(int j=0;j<s1[i].length();j++)
+            {
+                s+=s1[i].charAt(j);
+                hs.add(s);
+            }
+        }
+        for(int i=0;i<s1.length;i++)
+        {
+            String s="";
+            for(int j=s1[i].length()-1;j>=0;j--)
+            {
+                s=s1[i].charAt(j)+s;
+                hs.add(s);
+            }
+        }
+        int ct=0;
+        for(int i=0;i<s2.length;i++)
+        {
+            if(hs.contains(s2[i]))
+            ct++;
+        }
+        return ct;
+    }
+}
