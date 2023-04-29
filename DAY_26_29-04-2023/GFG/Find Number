@@ -1,1 +1,43 @@
 
+//User function Template for Java
+class Solution
+{
+    public long findNumber(long N)
+    {   
+    //     //long arr[] ={ 9,1,3,5,7};
+    //      long ans = 0;
+    //     long i = 0;
+    //     while( i > 0){
+    //       if( i % 2 != 0){
+    //           N--;
+    //           i++;
+    //           if( N==0){
+    //           long temp = i;
+    //           i = ans;
+    //           ans = temp;
+    //           }
+    //       }
+    //       }
+       
+    //   return ans;
+    long[] v = { 9, 1, 3, 5, 7 };
+        long ans = 0;
+        while (N > 0) {
+          ans = ans * 10 + v[(int)(N % 5)];
+        //  System.out.println(ans);
+          if (N % 5 == 0) {
+            N = N / 5;
+            N--;
+          }
+          else
+            N /= 5;
+        }
+        long matter=0;
+        while (ans > 0) {
+          matter=matter*10 +ans%10;
+          ans /= 10;
+        }
+        
+        return matter;
+    }
+}
